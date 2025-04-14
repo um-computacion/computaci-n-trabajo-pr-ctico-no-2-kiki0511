@@ -31,3 +31,26 @@ def clean_text(text: str) -> str:
     # Se elimina la puntuación, se quitan los espacios y se transforma a minúsculas.
     cleaned = text.translate(translator).replace(" ", "").lower()
     return cleaned
+
+# Implementar comparación de caracteres
+def compare_characters(cleaned_text: str) -> bool:
+    """
+    Compara el texto limpio con su versión invertida para determinar si es un palíndromo.
+    """
+    return cleaned_text == cleaned_text[::-1]
+
+if __name__ == '__main__':
+    # Programa interactivo para probar el detector de palíndromos
+    while True:
+        try:
+            entrada = input("Ingrese una palabra o frase: ")
+            if entrada.strip() == "":
+                print("Entrada vacía. Por favor, ingrese un texto.")
+                continue
+            if is_palindrome(entrada):
+                print(f'"{entrada}" es un palíndromo')
+            else:
+                print(f'"{entrada}" no es un palíndromo')
+        except KeyboardInterrupt:
+            print("\nPrograma finalizado.")
+            break

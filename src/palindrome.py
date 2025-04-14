@@ -16,3 +16,18 @@ def clean_text(text: str) -> str:
 
 def compare_characters(cleaned_text: str) -> bool:
     pass
+
+
+#Implementar limpieza de texto
+
+import string
+
+def clean_text(text: str) -> str:
+    """
+    Limpia el texto eliminando espacios, signos de puntuación y convirtiendo todo a minúsculas.
+    """
+    #  un traductor para eliminar la puntuación
+    translator = str.maketrans('', '', string.punctuation)
+    # Se elimina la puntuación, se quitan los espacios y se transforma a minúsculas.
+    cleaned = text.translate(translator).replace(" ", "").lower()
+    return cleaned
